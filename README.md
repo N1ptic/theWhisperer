@@ -1,31 +1,33 @@
 # 🎙️ WhispererAI
 
-An intelligent voice-based AI assistant that transcribes speech and answers questions in real-time using OpenAI's Whisper and GPT models.
+An intelligent voice-based AI assistant that transcribes speech and answers questions in real-time using OpenAI's Whisper and Llama models.
 
 ## 🌟 Features
 
 - Real-time audio recording and transcription
-- Automatic question detection
-- AI-powered responses using GPT-3.5 Turbo
-- Support for high-quality audio processing
+- Local speech recognition using Whisper Base model
+- AI-powered responses using Llama through Ollama
+- High-quality audio processing with noise filtering
 - CUDA acceleration support for faster processing
+- Cross-platform support (Windows, Linux, macOS)
 
 ## 🛠️ Technologies
 
-- Python 3.7+
-- OpenAI Whisper (Large v3 model)
-- OpenAI GPT-3.5 Turbo
+- Python 3.8+
+- OpenAI Whisper (Base model)
+- Llama (via Ollama)
 - PyTorch
 - Transformers
 - FFMPEG for audio capture
+- SoundFile for audio processing
 
 ## 📋 Prerequisites
 
-- Python 3.7 or higher
+- Python 3.8 or higher
 - CUDA-capable GPU (optional, but recommended)
 - FFMPEG installed on your system
-- OpenAI API key
-- Compatible audio input device
+- Ollama installed and running locally
+- Compatible audio input device (default or HyperX Cloud Stinger Core Wireless)
 
 ## 🚀 Installation
 
@@ -35,15 +37,18 @@ git clone https://github.com/yourusername/WhispererAI.git
 cd WhispererAI
 ```
 
-2. Install the required dependencies:
+2. Create and activate a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Set up your OpenAI API key as an environment variable:
-```bash
-export OPENAI_API_KEY='your-api-key-here'
-```
+4. Install Ollama from [ollama.ai](https://ollama.ai) and start the service
 
 ## 💻 Usage
 
@@ -53,26 +58,37 @@ python app.py
 ```
 
 2. Use the following controls:
-- Press `+` to start recording
-- Press `-` to stop recording and process the audio
-- Press `q` to quit the application
+- Press `R` to start recording
+- Press `S` to stop recording and process the audio
+- Press `C` to clear the screen
+- Press `Q` to quit the application
 
 ## ⚙️ Configuration
 
 The application uses the following default settings:
-- Audio sample rate: 16kHz
+- Audio sample rate: 48kHz
 - Audio channels: Mono
-- Model: Whisper Large v3
+- Whisper Model: Base
+- LLM: Llama (via Ollama)
 - Device: CUDA if available, CPU otherwise
+- Audio filters: High-pass (50Hz), Low-pass (15kHz), Volume boost (1.5x)
 
-## 📝 License
+## 🎤 Audio Device Configuration
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+- Windows: Automatically detects HyperX Cloud Stinger Core Wireless DTS
+- Linux/macOS: Uses default audio input device
+- Lists available audio devices if preferred device is not found
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## ⚠️ Note
+## ⚠️ Notes
 
-Make sure to configure your audio input device correctly in the `record_audio()` function of `app.py`.
+- Ensure Ollama is running before starting the application
+- Configure your audio input device if the default is not suitable
+- For optimal performance, use a CUDA-capable GPU
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

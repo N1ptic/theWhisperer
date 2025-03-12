@@ -1,0 +1,39 @@
+# Core AI/ML dependencies
+torch==2.4.0
+torchaudio==2.4.0
+transformers==4.44.0
+numpy==1.26.4
+httpx>=0.25.2,<0.26.0
+ollama==0.1.6
+
+# Audio processing
+soundfile==0.12.1
+pyaudio==0.2.14
+wave==0.0.2
+
+# Windows specific
+pywin32==306
+
+# Utility packages
+tqdm==4.66.5
+requests==2.32.3
+pydantic==2.8.2
+PyYAML==6.0.2
+
+# HTTP and networking
+aiohttp==3.10.3
+urllib3==2.2.2
+
+# File handling and system
+fsspec==2024.6.1
+filelock==3.15.4
+
+# Development and optimization
+accelerate==0.33.0
+psutil==6.0.0
+
+# Type checking and compatibility
+typing_extensions==4.12.2
+# Additional dependencies
+safetensors==0.5.3
+tokenizers==0.19.1
